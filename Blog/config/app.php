@@ -170,7 +170,7 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Services\BlogService::class,
+        //App\Services\BlogService::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

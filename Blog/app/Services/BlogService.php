@@ -22,15 +22,16 @@ class BlogService implements BlogServiceInterface
         return $result;
     }
 
-    public function getTask($id)
+    public function getBlog($id)
     {
-        $task = $this->blogRepository->getById($id);
-        return $task;
+        $blog = $this->blogRepository->getById($id);
+        return $blog;
     }
 
-    public function delete($obj)
+    public function delete($id)
     {
-        $this->blogRepository->delete($obj);
+        $blog = $this->blogRepository->getById($id);
+        $this->blogRepository->delete($blog);
     }
 
     public function create($request)
@@ -39,7 +40,31 @@ class BlogService implements BlogServiceInterface
         $blog->title = $request->title;
         $blog->name = $request->name;
         $blog->contents = $request->contents;
-        $blog->image = $request->image;
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $blog->image = $file;
+        } else {
+//          php artisan storage:link
+            $path = $file->store('images', 'public');
+            $blog->image = $path;
+        }
+        $this->blogRepository->create($blog);
+    }
+
+    public function update($request, $id)
+    {
+        $blog = $this->blogRepository->getById($id);
+        $blog->name = $request->name;
+        $blog->title = $request->title; // lam gi co
+        $blog->contents = $request->contents;
+        $file = $request->inputFile;
+        if (!$request->hasFile('inputFile')) {
+            $blog->image = $file;
+        } else {
+//          php artisan storage:link
+            $path = $file->store('images', 'public');
+            $blog->image = $path;
+        }
         $this->blogRepository->create($blog);
     }
 }

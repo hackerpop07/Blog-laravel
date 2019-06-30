@@ -19,7 +19,7 @@ class BlogSeeder extends Seeder
             for ($j = 0; $j < 30; $j++) {
                 $blog->contents .= str_random(7) . " ";
             }
-            $blog->image = str_random(10);
+            $blog->image = 'images/' . 'BIhRMKPm38WXsAU150n63muCMhx17nUpm8mciDGH.png';
             $blog->save();
         }
     }

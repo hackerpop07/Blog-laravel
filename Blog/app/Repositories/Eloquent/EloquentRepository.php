@@ -25,7 +25,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     public function getAll()
     {
-        $result = $this->model->orderBy('id', 'DESC')->get();
+        $result = $this->getModel()::paginate(3);
         return $result;
     }
 
@@ -34,9 +34,9 @@ abstract class EloquentRepository implements RepositoryInterface
         return $object->save();
     }
 
-    public function delete($task)
+    public function delete($blog)
     {
-        $task->delete();
+        $blog->delete();
     }
 
     public function update($object)

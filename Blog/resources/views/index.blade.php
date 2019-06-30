@@ -12,19 +12,19 @@
             <th>Thao tác</th>
         </tr>
         </thead>
-        @forelse($customers as $customer)
+        @forelse($blogs as $blog)
             <tr>
-                <th class="align-middle">{{ $customer->id }}</th>
+                <th class="align-middle">{{ $blog->id }}</th>
                 <th class="align-middle"><a
-                        href="{{route('customers.show',["id"=>$customer->id])}}">{{ $customer->name }}</a></th>
-                <th class="align-middle">{{ $customer->phone }}</th>
-                <th class="align-middle">{{ $customer->email }}</th>
-                <th class="align-middle"><img src="{{ asset('storage/' . $customer->image) }}" alt=""
+                        href="{{route('blogs.show',["id"=>$blog->id])}}">{{ $blog->name }}</a></th>
+                <th class="align-middle">{{ $blog->title }}</th>
+                <th class="align-middle">{{ $blog->contents }}</th>
+                <th class="align-middle"><img src="{{ asset('storage/' . $blog->image) }}" alt=""
                                               style="width: 50px"></th>
-                <th class="align-middle"><a href="{{route('customers.edit',["id"=>$customer->id])}}">
+                <th class="align-middle"><a href="{{route('blogs.edit',["id"=>$blog->id])}}">
                         <button class="btn btn-primary">Edit</button>
                     </a>
-                    <a href="{{route('customers.destroy',["id"=>$customer->id])}}">
+                    <a href="{{route('blogs.destroy',["id"=>$blog->id])}}">
                         <button onclick="return confirm('Bạn muốn xóa không?') " class="btn btn-primary">Delete
                         </button>
                     </a>
@@ -36,8 +36,5 @@
             </tr>
         @endforelse
     </table>
-    @if(isset($message))
-        {{$message}}
-    @endif
-    <div class="row">{{$customers->links()}}</div>
+        <div class="row">{{$blogs->links()}}</div>
 @endsection
