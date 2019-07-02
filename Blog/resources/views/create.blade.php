@@ -6,9 +6,9 @@
             <h1>Thêm mới</h1>
             <input class="form-control" type="text" name="name" placeholder="name" required>
             <br>
-            <input class="form-control" type="text" name="title" placeholder="phone" required>
+            <input class="form-control" type="text" name="title" placeholder="title" required>
             <br>
-            <input class="form-control" type="text" name="contents" placeholder="email">
+            <input class="form-control" type="text" name="contents" placeholder="contents">
             <br>
             <input type="file"
                    class="form-control-file"

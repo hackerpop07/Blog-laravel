@@ -41,7 +41,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     public function update($object)
     {
-        // TODO: Implement update() method.
+        return $object->save();
     }
 
     public function getById($id)

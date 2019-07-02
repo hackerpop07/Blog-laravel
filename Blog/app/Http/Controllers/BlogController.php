@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Services\BlogServiceInterface;
 use Illuminate\Http\Request;
 

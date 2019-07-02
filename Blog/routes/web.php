@@ -20,3 +20,12 @@ Route::prefix('blogs')->group(function () {
     Route::post('/{id}/update', 'BlogController@update')->name('blogs.update');
     Route::get('/{id}/destroy', 'BlogController@destroy')->name('blogs.destroy');
 });
+Route::prefix('categories')->group(function () {
+    Route::get('/', 'CategoryController@index')->name('categories.index');
+    Route::get('{id}/detail', 'CategoryController@show')->name('categories.show');
+    Route::get('/create', 'CategoryController@create')->name('categories.create');
+    Route::post('/create', 'CategoryController@store')->name('categories.store');
+    Route::get('/{id}/update', 'CategoryController@edit')->name('categories.edit');
+    Route::post('/{id}/update', 'CategoryController@update')->name('categories.update');
+    Route::get('/{id}/destroy', 'CategoryController@destroy')->name('categories.destroy');
+});

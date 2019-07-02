@@ -65,6 +65,6 @@ class BlogService implements BlogServiceInterface
             $path = $file->store('images', 'public');
             $blog->image = $path;
         }
-        $this->blogRepository->create($blog);
+        $this->blogRepository->update($blog);
     }
 }

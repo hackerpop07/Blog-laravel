@@ -8,10 +8,13 @@
             <th>Tên Blog</th>
             <th>Title</th>
             <th>Contents</th>
+            <th>Thể Loại</th>
             <th>Image</th>
             <th>Thao tác</th>
         </tr>
         </thead>
+        <?php
+        ?>
         @forelse($blogs as $blog)
             <tr>
                 <th class="align-middle">{{ $blog->id }}</th>
@@ -19,6 +22,7 @@
                         href="{{route('blogs.show',["id"=>$blog->id])}}">{{ $blog->name }}</a></th>
                 <th class="align-middle">{{ $blog->title }}</th>
                 <th class="align-middle">{{ $blog->contents }}</th>
+                <th class="align-middle">{{ $blog->category->name }}</th>
                 <th class="align-middle"><img src="{{ asset('storage/' . $blog->image) }}" alt=""
                                               style="width: 50px"></th>
                 <th class="align-middle"><a href="{{route('blogs.edit',["id"=>$blog->id])}}">
@@ -36,5 +40,5 @@
             </tr>
         @endforelse
     </table>
-        <div class="row">{{$blogs->links()}}</div>
+    <div class="row">{{$blogs->links()}}</div>
 @endsection
